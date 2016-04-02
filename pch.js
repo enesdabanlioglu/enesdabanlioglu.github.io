@@ -195,6 +195,8 @@ var rafID = null;
 var tracks = null;
 var buflen = 2048;
 var buf = new Float32Array( buflen );
+var maxx = 0;
+var minn = 0;
 
 var noteStrings = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
@@ -260,6 +262,8 @@ function autoCorrelate( buf, sampleRate ) {
 
 	for (var i=0;i<SIZE;i++) {
 		var val = buf[i];
+		if(buf[i] > maxx) maxx = buf[i];
+		if(buf[i] < minn) minn = buf[i];
 		rms += val*val;
 	}
 	rms = Math.sqrt(rms/SIZE);
