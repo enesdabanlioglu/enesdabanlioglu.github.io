@@ -193,7 +193,7 @@ function togglePlayback() {
 
 var rafID = null;
 var tracks = null;
-var buflen = 1024;
+var buflen = 2048;
 var buf = new Float32Array( buflen );
 
 var noteStrings = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
