@@ -1,7 +1,49 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
+<head>
+<title>Pitch Detector</title>
+<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
+<style>
+
+</style>
+
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<script type="text/javascript">
+
+var audio, volume, frequencies, frequency, audioContext, analyser, 
+    microphone, waveform, amplitude;
+
+navigator.getUserMedia(
+    {
+    audio: true, 
+    video: false
+    }, function (stream) {
+        audioContext = new AudioContext();
+        analyser = audioContext.createAnalyser();
+        frequencies = new Float32Array(analyser.frequencyBinCount);
+        console.log(analyser);
+        amplitude = new Uint8Array(analyser.frequencyBinCount);
+
+        volume = audioContext.createGain();
+
+        microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(volume);
+        microphone.connect(analyser);
+
+        renderFrame();
+    }, function (error) { console.log(error); });
+
+  function renderFrame () {
+      setTimeout(requestAnimationFrame(renderFrame), 100);
+      analyser.getFloatFrequencyData(frequencies);
+      analyser.getByteTimeDomainData(amplitude);
+
+      frequency = signaltohertz(frequencies);
+      console.log(frequency);
+    };
+</script>
 </body>
 </html>
