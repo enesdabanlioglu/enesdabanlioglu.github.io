@@ -198,7 +198,7 @@ var buf = new Float32Array( buflen );
 
 var noteStrings = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-function noteFromPitch( frequency ) {
+function noteFromPitch( frequency ) { console.log(frequency);
 	var noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
 	return Math.round( noteNum ) + 69;
 }
@@ -346,7 +346,7 @@ function updatePitch( time ) {
 	 	pitchElem.innerText = Math.round( pitch ) ;
 	 	var note =  noteFromPitch( pitch );
 		noteElem.innerHTML = noteStrings[note%12];
-		console.log(note);
+		//console.log(note);
 		var detune = centsOffFromPitch( pitch, note );
 		if (detune == 0 ) {
 			detuneElem.className = "";
