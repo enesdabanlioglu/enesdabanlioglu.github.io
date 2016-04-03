@@ -260,15 +260,15 @@ function autoCorrelate( buf, sampleRate ) {
 	var foundGoodCorrelation = false;
 	var correlations = new Array(MAX_SAMPLES);
 
-            P10.style.height = ((buf[0] * 100) / 6) + "%";
-            P20.style.height = ((buf[1] * 100) / 6) + "%";
-            P30.style.height = ((buf[2] * 100) / 6) + "%";
-            P40.style.height = ((buf[3] * 100) / 6) + "%";
-            P50.style.height = ((buf[4] * 100) / 6) + "%";
-            P60.style.height = ((buf[5] * 100) / 6) + "%";
-            P70.style.height = ((buf[6] * 100) / 6) + "%";
-            P80.style.height = ((buf[7] * 100) / 6) + "%";
-            P90.style.height = ((buf[8] * 100) / 6) + "%";
+            P10.style.height = ((buf[0] * 100)) + "%";
+            P20.style.height = ((buf[1] * 100)) + "%";
+            P30.style.height = ((buf[2] * 100)) + "%";
+            P40.style.height = ((buf[3] * 100)) + "%";
+            P50.style.height = ((buf[4] * 100)) + "%";
+            P60.style.height = ((buf[5] * 100)) + "%";
+            P70.style.height = ((buf[6] * 100)) + "%";
+            P80.style.height = ((buf[7] * 100)) + "%";
+            P90.style.height = ((buf[8] * 100)) + "%";
 
 	for (var i=0;i<SIZE;i++) {
 		var val = buf[i];
