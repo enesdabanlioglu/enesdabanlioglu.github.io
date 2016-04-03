@@ -259,7 +259,7 @@ function autoCorrelate( buf, sampleRate ) {
 	var rms = 0;
 	var foundGoodCorrelation = false;
 	var correlations = new Array(MAX_SAMPLES);
-
+console.log(buf);
 	for (var i=0;i<SIZE;i++) {
 		var val = buf[i];
 		if(buf[i] > maxx) maxx = buf[i];
