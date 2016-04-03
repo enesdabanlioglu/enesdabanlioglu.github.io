@@ -259,7 +259,17 @@ function autoCorrelate( buf, sampleRate ) {
 	var rms = 0;
 	var foundGoodCorrelation = false;
 	var correlations = new Array(MAX_SAMPLES);
-console.log(buf);
+
+            P10.style.height = ((buf[0] * 100) / 256) + "%";
+            P20.style.height = ((buf[1] * 100) / 256) + "%";
+            P30.style.height = ((buf[2] * 100) / 256) + "%";
+            P40.style.height = ((buf[3] * 100) / 256) + "%";
+            P50.style.height = ((buf[4] * 100) / 256) + "%";
+            P60.style.height = ((buf[5] * 100) / 256) + "%";
+            P70.style.height = ((buf[6] * 100) / 256) + "%";
+            P80.style.height = ((buf[7] * 100) / 256) + "%";
+            P90.style.height = ((buf[8] * 100) / 256) + "%";
+
 	for (var i=0;i<SIZE;i++) {
 		var val = buf[i];
 		if(buf[i] > maxx) maxx = buf[i];
