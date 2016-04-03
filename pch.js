@@ -255,7 +255,7 @@ function autoCorrelate( buf, sampleRate ) {
 
 		for(var asd  = 0; asd < 256; asd++)
 		{
-			document.getElementById("p" + asd).style.height = ((buf[0] * 100)) + "%";
+			document.getElementById("p" + asd).style.height = ((buf[asd] * 100)) + "%";
 		}	
 
 	return -1;
