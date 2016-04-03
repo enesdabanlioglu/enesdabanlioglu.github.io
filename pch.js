@@ -106,7 +106,7 @@ function gotStream(stream) {
 
     // Connect it to the destination.
     analyser = audioContext.createAnalyser();
-    analyser.fftSize = 32;
+    analyser.fftSize = 256;
     mediaStreamSource.connect( analyser );
     updatePitch();
 }
@@ -126,7 +126,7 @@ function toggleOscillator() {
     sourceNode = audioContext.createOscillator();
 
     analyser = audioContext.createAnalyser();
-    analyser.fftSize = 2048;
+    analyser.fftSize = 256;
     sourceNode.connect( analyser );
     analyser.connect( audioContext.destination );
     sourceNode.start(0);
@@ -180,7 +180,7 @@ function togglePlayback() {
     sourceNode.loop = true;
 
     analyser = audioContext.createAnalyser();
-    analyser.fftSize = 2048;
+    analyser.fftSize = 256;
     sourceNode.connect( analyser );
     analyser.connect( audioContext.destination );
     sourceNode.start( 0 );
@@ -193,7 +193,7 @@ function togglePlayback() {
 
 var rafID = null;
 var tracks = null;
-var buflen = 2048;
+var buflen = 256;
 var buf = new Float32Array( buflen );
 var maxx = 0;
 var minn = 0;
@@ -253,17 +253,10 @@ var MIN_SAMPLES = 0;  // will be initialized when AudioContext is created.
 
 function autoCorrelate( buf, sampleRate ) {
 
-            P10.style.height = ((buf[0] * 100)) + "%";
-            P20.style.height = ((buf[1] * 100)) + "%";
-            P30.style.height = ((buf[2] * 100)) + "%";
-            P40.style.height = ((buf[3] * 100)) + "%";
-            P50.style.height = ((buf[4] * 100)) + "%";
-            P60.style.height = ((buf[5] * 100)) + "%";
-            P70.style.height = ((buf[6] * 100)) + "%";
-            P80.style.height = ((buf[7] * 100)) + "%";
-            P90.style.height = ((buf[8] * 100)) + "%";
-
-	
+		for(var asd  = 0; asd < 256; asd++)
+		{
+			document.getElementById("p" + asd).style.height = ((buf[0] * 100)) + "%";
+		}	
 
 	return -1;
 //	var best_frequency = sampleRate/best_offset;

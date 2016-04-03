@@ -39,6 +39,16 @@ div.vague { color: lightgrey; }
 </style>
 </head>
 <body>
+	<script>
+		var elem = document.getElementById("bar");
+		for(var asd  = 0; asd < 256; asd++)
+		{
+			var dv = document.createElement("DIV")
+			dv.className = "p";
+			dv.id = "p" + asd;
+			elem.appendChild(dv);
+		}
+	</script>
 <script src="pch.js"></script>
 
 <button onclick="this.innerText = togglePlayback()">use demo audio</button>
@@ -60,28 +70,8 @@ div.vague { color: lightgrey; }
 
 
 <div id="bar">
-    <div id="P10" class="p"></div>
-    <div id="P20" class="p"></div>
-    <div id="P30" class="p"></div>
-    <div id="P40" class="p"></div>
-    <div id="P50" class="p"></div>
-    <div id="P60" class="p"></div>
-    <div id="P70" class="p"></div>
-    <div id="P80" class="p"></div>
-    <div id="P90" class="p"></div>
+
 </div>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35593052-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </body>
 </html>
