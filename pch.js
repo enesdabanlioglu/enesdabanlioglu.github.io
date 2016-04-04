@@ -253,10 +253,11 @@ var MIN_SAMPLES = 0;  // will be initialized when AudioContext is created.
 
 function autoCorrelate( buf, sampleRate ) {
 
-		for(var asd  = 0; asd < 256; asd++)
-		{
-			document.getElementById("p" + asd).style.height = ((buf[asd] * 100)) + "%";
-		}	
+	console.log(buf);
+	for(var asd  = 0; asd < 256; asd++)
+	{
+		document.getElementById("p" + asd).style.height = ((buf[asd] * 100)) + "%";
+	}	
 
 	return -1;
 //	var best_frequency = sampleRate/best_offset;
